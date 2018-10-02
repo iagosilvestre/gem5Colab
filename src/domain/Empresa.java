@@ -6,15 +6,13 @@ public class Empresa {
 
 	private String nome;
 	private int id;
-	private ArrayList<Projeto> Projetos=new ArrayList<Projeto>();
-	private ArrayList<Funcionario> Funcionarios=new ArrayList<Funcionario>();
+	private List<Projeto> Projetos=new ArrayList<Projeto>();
+	private List<Funcionario> Funcionarios=new ArrayList<Funcionario>();
 	
 	
-	public Empresa(String string, int id,ArrayList<Funcionario> funcionarios,ArrayList<Projeto> projetos) {
+	public Empresa(String string, int id) {
 		this.nome=string;
 		this.id=id;
-		this.Projetos=projetos;
-		this.Funcionarios=funcionarios;
 		// TODO Auto-generated constructor stub
 	}
 
@@ -29,14 +27,13 @@ public class Empresa {
 	}
 
 
-	public void desenvolveProjeto(String nomeProjeto, Funcionario responsavel) {
-		Projeto p=new Projeto(nomeProjeto,responsavel,new ArrayList<Ocorrencia>());
+	public void desenvolveProjeto(Projeto p) {
 		Projetos.add(p);
 		
 	}
 
 
-	public Object listProjetos() {
+	public List<Projeto> listProjetos() {
 		return this.Projetos;
 	}
 
