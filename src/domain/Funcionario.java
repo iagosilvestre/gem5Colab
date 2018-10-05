@@ -46,8 +46,10 @@ public class Funcionario {
 	}
 
 	public void terminaOcorrencia(Ocorrencia oc) {
-		oc.finaliza();
-		this.removeOcorrencia(oc);
+		if(this.ocorrencias.contains(oc)) {
+			oc.finaliza();
+			this.removeOcorrencia(oc);
+		}
 	}
 
 

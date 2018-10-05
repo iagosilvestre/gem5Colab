@@ -18,25 +18,32 @@ public class testeOcorrencia {
 	private Funcionario Joao;
 	private Funcionario Marcio;
 	private Funcionario Cesar;
-	private Empresa AppleR;
 	private Empresa Apple;
+	private Projeto p1;
+	private Ocorrencia o1;
 
 	@Before
 	public void setUp(){
 		Apple = new Empresa("Apple",1);	// Existe a Apple dos computadores e Apple Records da musica
-		AppleR = new Empresa("Apple",2); //
 		Joao = new Funcionario("Joao");
 		Marcio= new Funcionario("Marcio");
 		Cesar= new Funcionario("Cesar");
+		p1=new Projeto("Macintosh",Apple);
+		o1=new Ocorrencia("bug","bug na criacao de threads","alta",p1,Joao);
 		return;
 	}
 	
 	@Test
-	public void geraOcorrencia() throws Exception {
-		Projeto p1=new Projeto("Macintosh",Apple);
-		Ocorrencia o1=new Ocorrencia("bug","bug na criacao de threads","alta",p1,Joao);
+	public void mudaResponsavelOcorrencia() throws Exception {
 		o1.mudaResponsavel(Marcio);
+		assertEquals(o1.getResponsavel(),Marcio);		
 		
+	}
+	@Test
+	public void mudaResponsavelAposTerminoOcorrencia() throws Exception {
+		Joao.terminaOcorrencia(o1);
+		o1.mudaResponsavel(Marcio);
+		assertNotEquals(o1.getResponsavel(),Marcio);		
 		
 	}
 }

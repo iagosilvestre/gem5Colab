@@ -18,6 +18,7 @@ public class Ocorrencia {
 		this.projeto=p;
 		this.id=this.projeto.getIdOc();
 		this.responsavel=f;
+		this.responsavel.adicionaOcorrencia(this);
 	}
 
 	public void mudaResponsavel(Funcionario f) {
@@ -31,9 +32,18 @@ public class Ocorrencia {
 		
 	}
 
-	public void finaliza() {
+	void finaliza() {
 		this.estado="completada";
 		
+	}
+
+	public Funcionario getResponsavel() {
+		return this.responsavel;
+	}
+
+	public String getEstado() {
+		// TODO Auto-generated method stub
+		return this.estado;
 	}
 
 }
