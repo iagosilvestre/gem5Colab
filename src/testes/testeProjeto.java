@@ -32,12 +32,14 @@ public class testeProjeto {
 	}
 	
 	@Test
-	public void insereFuncionario() throws Exception {
-		List<Funcionario> testeFuncionario=new ArrayList<Funcionario>();
-		Apple.insereFuncionario(Joao);
-		Apple.insereFuncionario(Marcio);
-		testeFuncionario.add(Joao);
-		testeFuncionario.add(Marcio);
-		assertThat(Apple.listFuncionarios(),is(testeFuncionario));
+	public void checkProjects() throws Exception {
+		List<Projeto> testeProjeto = new ArrayList<Projeto>();
+		Projeto p1=new Projeto("Macintosh",Apple);
+		Projeto p2=new Projeto("Ipod",Apple);
+		testeProjeto.add(p1);
+		testeProjeto.add(p2);
+		assertThat(Apple.listProjetos(),hasItem(p1));
+		assertThat(Apple.listProjetos(),hasItem(p2));
+		assertEquals(Apple.listProjetos(),testeProjeto);
 	}
 }

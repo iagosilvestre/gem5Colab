@@ -30,4 +30,12 @@ public class testeOcorrencia {
 		Cesar= new Funcionario("Cesar");
 		return;
 	}
+	
+	@Test
+	public void geraOcorrencia() throws Exception {
+		Projeto p1=new Projeto("Macintosh",Apple);
+		Ocorrencia o1=new Ocorrencia("bug","aberta","bug na criacao de threads","alta",p1);
+		
+		
+	}
 }

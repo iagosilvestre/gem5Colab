@@ -51,6 +51,7 @@ public class Empresa {
 
 
 	public void insereFuncionario(Funcionario f) {
+		idFunc=idFunc+1;
 		Funcionarios.add(f);
 		f.mudaEmpresa(this);
 		f.mudaId(this.idFunc);
