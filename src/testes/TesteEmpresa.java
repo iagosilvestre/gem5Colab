@@ -17,12 +17,16 @@ public class TesteEmpresa {
 	private Empresa Apple;
 	private Empresa AppleR;
 	private Funcionario Joao;
+	private Funcionario Marcio;
+	private Funcionario Cesar;
 	
 	@Before
 	public void setUp(){
 		Apple = new Empresa("Apple",1);	// Existe a Apple dos computadores e Apple Records da musica
 		AppleR = new Empresa("Apple",2); //
-		Joao = new Funcionario("Joao",Apple,1);
+		Joao = new Funcionario("Joao",Apple);
+		Marcio= new Funcionario("Marcio",Apple);
+		Cesar= new Funcionario("Cesar",Apple);
 		return;
 	}
 	
@@ -43,7 +47,7 @@ public class TesteEmpresa {
 	public void checkProjects() throws Exception {
 		List<Projeto> testeProjeto = new ArrayList<Projeto>();
 		Projeto p1=new Projeto("Macintosh",Joao);
-		Projeto p2=new Projeto("Macintosh",Joao);
+		Projeto p2=new Projeto("Ipod",Joao);
 		testeProjeto.add(p1);
 		testeProjeto.add(p2);
 		Apple.desenvolveProjeto(p1);
@@ -51,6 +55,12 @@ public class TesteEmpresa {
 		assertThat(Apple.listProjetos(),hasItem(p1));
 		assertThat(Apple.listProjetos(),hasItem(p2));
 		assertFalse(Apple.listProjetos().contains(new Projeto("Ipod",Joao)));
+		assertThat(Apple.listProjetos(),is(testeProjeto));
+	}
+	
+	@Test
+	public void insereFuncionario() throws Exception {
+		
 	}
 }
 

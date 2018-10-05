@@ -8,7 +8,7 @@ public class Funcionario {
 	public Funcionario(String nome, Empresa empresa, int id) {
 		this.nome=nome;
 		this.empresa=empresa;
-		this.id=id;
+		this.id=empresa.getIdFunc();
 	}
 
 }

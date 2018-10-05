@@ -6,6 +6,7 @@ public class Empresa {
 
 	private String nome;
 	private int id;
+	private int idFunc=0;
 	private List<Projeto> Projetos=new ArrayList<Projeto>();
 	private List<Funcionario> Funcionarios=new ArrayList<Funcionario>();
 	
@@ -35,6 +36,12 @@ public class Empresa {
 
 	public List<Projeto> listProjetos() {
 		return this.Projetos;
+	}
+
+
+	public int getIdFunc() {
+		idFunc=idFunc+1;
+		return idFunc;
 	}
 
 }
