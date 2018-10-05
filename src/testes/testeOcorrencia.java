@@ -34,7 +34,7 @@ public class testeOcorrencia {
 	@Test
 	public void geraOcorrencia() throws Exception {
 		Projeto p1=new Projeto("Macintosh",Apple);
-		Ocorrencia o1=new Ocorrencia("bug","aberta","bug na criacao de threads","alta",p1,Joao);
+		Ocorrencia o1=new Ocorrencia("bug","bug na criacao de threads","alta",p1,Joao);
 		o1.mudaResponsavel(Marcio);
 		
 		

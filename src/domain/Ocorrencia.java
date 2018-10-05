@@ -10,9 +10,9 @@ public class Ocorrencia {
 	private Projeto projeto;
 	private int id;
 
-	public Ocorrencia(String tipo, String estado, String resumo, String prioridade, Projeto p, Funcionario f) {
+	public Ocorrencia(String tipo, String resumo, String prioridade, Projeto p, Funcionario f) {
 		this.tipo=tipo;
-		this.estado=estado;
+		this.estado="aberta";
 		this.resumo=resumo;
 		this.prioridade=prioridade;
 		this.projeto=p;
@@ -22,10 +22,17 @@ public class Ocorrencia {
 
 	public void mudaResponsavel(Funcionario f) {
 		if(f.getOc()<10) {
-		this.responsavel.removeOcorrencia();
-		f.adicionaOcorrencia();
-		this.responsavel=f;
+			if(this.estado=="aberta") {
+				this.responsavel.removeOcorrencia(this);
+				f.adicionaOcorrencia(this);
+				this.responsavel=f;
+			}
 		}
+		
+	}
+
+	public void finaliza() {
+		this.estado="completada";
 		
 	}
 

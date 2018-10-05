@@ -30,17 +30,25 @@ public class Funcionario {
 		
 	}
 
-	public void removeOcorrencia() {
-		this.numOc=this.numOc-1;
-		
+	public void removeOcorrencia(Ocorrencia oc) {
+		this.ocorrencias.remove(oc);
 	}
 
-	public void adicionaOcorrencia() {
-		this.numOc=this.numOc+1;
+	public void adicionaOcorrencia(Ocorrencia oc) {
+		this.ocorrencias.add(oc);
 	}
 
 	public int getOc() {
-		return this.numOc;
+		return this.ocorrencias.size();
 	}
+	public String getNome() {
+		return this.nome;
+	}
+
+	public void terminaOcorrencia(Ocorrencia oc) {
+		oc.finaliza();
+		this.removeOcorrencia(oc);
+	}
+
 
 }
