@@ -13,13 +13,14 @@ import domain.Funcionario;
 import domain.Ocorrencia;
 import domain.Projeto;
 
-public class TesteEmpresa {
-	private Empresa Apple;
-	private Empresa AppleR;
+public class testeOcorrencia {
+		
 	private Funcionario Joao;
 	private Funcionario Marcio;
 	private Funcionario Cesar;
-	
+	private Empresa AppleR;
+	private Empresa Apple;
+
 	@Before
 	public void setUp(){
 		Apple = new Empresa("Apple",1);	// Existe a Apple dos computadores e Apple Records da musica
@@ -29,21 +30,4 @@ public class TesteEmpresa {
 		Cesar= new Funcionario("Cesar");
 		return;
 	}
-	
-	
-	@Test
-	public void nomeDeEmpresa() throws Exception {
-		assertThat(Apple.nome(),equalToIgnoringCase("Apple"));
-		assertThat(AppleR.nome(),equalToIgnoringCase("apple"));
-		
-	}
-	@Test
-	public void idDaEmpresa() throws Exception {
-		assertThat(Apple.id(),is(1));
-		assertThat(AppleR.id(),is(2));
-	}
-
-	
 }
-
-

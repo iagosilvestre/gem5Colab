@@ -44,4 +44,17 @@ public class Empresa {
 		return idFunc;
 	}
 
+
+	public Object listFuncionarios() {
+		return this.Funcionarios;
+	}
+
+
+	public void insereFuncionario(Funcionario f) {
+		Funcionarios.add(f);
+		f.mudaEmpresa(this);
+		f.mudaId(this.idFunc);
+		
+	}
+
 }
