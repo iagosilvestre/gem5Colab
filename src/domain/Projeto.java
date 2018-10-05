@@ -21,5 +21,9 @@ public class Projeto {
 		idOc=idOc+1;
 		return idOc;
 	}
+	
+	public Empresa getEmpresa() {
+		return this.empresa;
+	}
 
 }
