@@ -22,11 +22,11 @@ public class TesteEmpresa {
 	
 	@Before
 	public void setUp(){
-		Apple = new Empresa("Apple",1);	// Existe a Apple dos computadores e Apple Records da musica
-		AppleR = new Empresa("Apple",2); //
-		Joao = new Funcionario("Joao");
-		Marcio= new Funcionario("Marcio");
-		Cesar= new Funcionario("Cesar");
+		Apple = new Empresa("Apple");	// Existe a Apple dos computadores e Apple Records da musica
+		AppleR = new Empresa("Apple"); //
+		Joao = new Funcionario("Joao",Apple);
+		Marcio= new Funcionario("Marcio",Apple);
+		Cesar= new Funcionario("Cesar",AppleR);
 		return;
 	}
 	
@@ -37,12 +37,11 @@ public class TesteEmpresa {
 		assertThat(AppleR.nome(),equalToIgnoringCase("apple"));
 		
 	}
+	
 	@Test
-	public void idDaEmpresa() throws Exception {
-		assertThat(Apple.id(),is(1));
-		assertThat(AppleR.id(),is(2));
+	public void nomeVazioEmpresa() throws Exception {
+		Empresa EmpresaVazia = new Empresa(""); 
 	}
-
 	
 }
 

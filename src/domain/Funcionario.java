@@ -14,11 +14,9 @@ public class Funcionario {
 		this.nome=nome;
 		this.empresa=empresa;
 		this.id=empresa.getIdFunc();
+		this.empresa.insereFuncionario(this);
 	}
 
-	public Funcionario(String nome) {
-		this.nome=nome;
-	}
 
 	public void mudaEmpresa(Empresa empresa) {
 		this.empresa=empresa;

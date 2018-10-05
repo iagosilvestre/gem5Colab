@@ -5,26 +5,21 @@ public class Empresa {
 
 
 	private String nome;
-	private int id;
 	private int idFunc=0;
 	private List<Projeto> Projetos=new ArrayList<Projeto>();
 	private List<Funcionario> Funcionarios=new ArrayList<Funcionario>();
 	
 	
-	public Empresa(String string, int id) {
+	public Empresa(String string) {
+		if(string.isEmpty()) {
+			throw new Error("empty name");
+		}
 		this.nome=string;
-		this.id=id;
-		// TODO Auto-generated constructor stub
 	}
 
 
 	public String nome() {
 		return this.nome;
-	}
-
-
-	public int id() {
-		return this.id;
 	}
 
 
@@ -50,12 +45,8 @@ public class Empresa {
 	}
 
 
-	public void insereFuncionario(Funcionario f) {
-		idFunc=idFunc+1;
+	void insereFuncionario(Funcionario f) {
 		Funcionarios.add(f);
-		f.mudaEmpresa(this);
-		f.mudaId(this.idFunc);
-		
 	}
 
 }

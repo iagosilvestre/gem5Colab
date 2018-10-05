@@ -19,15 +19,17 @@ public class testeOcorrencia {
 	private Funcionario Marcio;
 	private Funcionario Cesar;
 	private Empresa Apple;
+	private Empresa AppleR;
 	private Projeto p1;
 	private Ocorrencia o1;
 
 	@Before
 	public void setUp(){
-		Apple = new Empresa("Apple",1);	// Existe a Apple dos computadores e Apple Records da musica
-		Joao = new Funcionario("Joao");
-		Marcio= new Funcionario("Marcio");
-		Cesar= new Funcionario("Cesar");
+		Apple = new Empresa("Apple");	// Existe a Apple dos computadores e Apple Records da musica
+		AppleR = new Empresa("Apple");	// Existe a Apple dos computadores e Apple Records da musica
+		Joao = new Funcionario("Joao",Apple);
+		Marcio= new Funcionario("Marcio",Apple);
+		Cesar= new Funcionario("Cesar",AppleR);
 		p1=new Projeto("Macintosh",Apple);
 		o1=new Ocorrencia("bug","bug na criacao de threads","alta",p1,Joao);
 		return;
