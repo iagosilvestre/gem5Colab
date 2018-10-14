@@ -40,7 +40,12 @@ public class TesteEmpresa {
 	
 	@Test
 	public void nomeVazioEmpresa() throws Exception {
+		try {
 		Empresa EmpresaVazia = new Empresa(""); 
+		}
+		catch(Error err){
+			System.out.println("Teste de nome vazio resultou em erro :  "+ err);
+		}
 	}
 	
 }

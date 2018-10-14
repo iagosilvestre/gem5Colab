@@ -1,5 +1,6 @@
 package domain;
 import java.util.*;
+import java.lang.IllegalArgumentException;
 
 public class Empresa {
 
@@ -16,6 +17,8 @@ public class Empresa {
 		}
 		this.nome=string;
 	}
+
+
 
 
 	public String nome() {
