@@ -11,16 +11,24 @@ public class Funcionario {
 	private List<Ocorrencia> ocorrencias=new ArrayList<Ocorrencia>();
 
 	public Funcionario(String nome, Empresa empresa) {
+		if(nome.isEmpty()) {
+			throw new Error("empty name");
+		}
+		
+		
 		this.nome=nome;
 		this.empresa=empresa;
 		this.id=empresa.getIdFunc();
 		this.empresa.insereFuncionario(this);
+		
 	}
 
 
 	public void mudaEmpresa(Empresa empresa) {
+		this.empresa.removeFuncionario(this);
+		empresa.insereFuncionario(this);
 		this.empresa=empresa;
-		
+		this.id=empresa.getIdFunc();
 	}
 
 	public void mudaId(int idFunc) {
@@ -48,6 +56,16 @@ public class Funcionario {
 			oc.finaliza();
 			this.removeOcorrencia(oc);
 		}
+	}
+
+
+	public int getId() {
+		return this.id;
+	}
+
+
+	public Empresa getEmpresa() {
+		return this.empresa;
 	}
 
 

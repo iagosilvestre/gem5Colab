@@ -11,11 +11,11 @@ public class Empresa {
 	private List<Funcionario> Funcionarios=new ArrayList<Funcionario>();
 	
 	
-	public Empresa(String string) {
-		if(string.isEmpty()) {
+	public Empresa(String nome) {
+		if(nome.isEmpty()) {
 			throw new Error("empty name");
 		}
-		this.nome=string;
+		this.nome=nome;
 	}
 
 
@@ -43,13 +43,17 @@ public class Empresa {
 	}
 
 
-	public Object listFuncionarios() {
+	public List<Funcionario> listFuncionarios() {
 		return this.Funcionarios;
 	}
 
 
 	void insereFuncionario(Funcionario f) {
 		Funcionarios.add(f);
+	}
+	
+	void removeFuncionario(Funcionario f) {
+		Funcionarios.remove(f);
 	}
 
 }

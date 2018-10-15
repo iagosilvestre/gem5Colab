@@ -16,6 +16,7 @@ import domain.Projeto;
 public class TesteEmpresa {
 	private Empresa Apple;
 	private Empresa AppleR;
+	private Empresa Angeloni;
 	private Funcionario Joao;
 	private Funcionario Marcio;
 	private Funcionario Cesar;
@@ -24,6 +25,7 @@ public class TesteEmpresa {
 	public void setUp(){
 		Apple = new Empresa("Apple");	// Existe a Apple dos computadores e Apple Records da musica
 		AppleR = new Empresa("Apple"); //
+		Angeloni = new Empresa("Angeloni"); //
 		Joao = new Funcionario("Joao",Apple);
 		Marcio= new Funcionario("Marcio",Apple);
 		Cesar= new Funcionario("Cesar",AppleR);
@@ -46,6 +48,17 @@ public class TesteEmpresa {
 		catch(Error err){
 			System.out.println("Teste de nome vazio resultou em erro :  "+ err);
 		}
+	}
+	
+	@Test
+	public void listaFuncionarioVaziaDaEmpresa() throws Exception {
+		assertThat(Angeloni.listFuncionarios(),is(new ArrayList<Funcionario>()));
+		
+	}
+	@Test
+	public void listaProjetoVaziaDaEmpresa() throws Exception {
+		assertThat(Angeloni.listProjetos(),is(new ArrayList<Projeto>()));
+		
 	}
 	
 }

@@ -20,6 +20,7 @@ public class testeProjeto {
 	private Funcionario Cesar;
 	private Empresa AppleR;
 	private Empresa Apple;
+	private Projeto p1,p2,p3;
 
 	@Before
 	public void setUp(){
@@ -28,18 +29,55 @@ public class testeProjeto {
 		Joao = new Funcionario("Joao",Apple);
 		Marcio= new Funcionario("Marcio",Apple);
 		Cesar= new Funcionario("Cesar",AppleR);
+		p1=new Projeto("Macintosh",Apple);
+		p2=new Projeto("Ipod",Apple);
+		p3=new Projeto("White Album",AppleR);
 		return;
 	}
 	
 	@Test
 	public void checkProjects() throws Exception {
 		List<Projeto> testeProjeto = new ArrayList<Projeto>();
-		Projeto p1=new Projeto("Macintosh",Apple);
-		Projeto p2=new Projeto("Ipod",Apple);
+		List<Projeto> testeProjetoA = new ArrayList<Projeto>();
 		testeProjeto.add(p1);
 		testeProjeto.add(p2);
+		testeProjetoA.add(p3);
 		assertThat(Apple.listProjetos(),hasItem(p1));
 		assertThat(Apple.listProjetos(),hasItem(p2));
 		assertEquals(Apple.listProjetos(),testeProjeto);
+		assertEquals(AppleR.listProjetos(),testeProjetoA);
 	}
+	
+	
+	@Test
+	public void nomeDoProjeto() throws Exception {
+		assertThat(p3.getNome(),equalToIgnoringCase("white album"));
+	}
+	
+	@Test
+	public void testeEmpresaDoProjeto() throws Exception {
+		assertThat(p3.getEmpresa(),is(AppleR));
+	}
+	
+	
+	
+	@Test
+	public void nomeDoProjetoVazio() throws Exception {
+		try {
+			Projeto ProjetoVazio = new Projeto("",Apple); 
+			}
+			catch(Error err){
+				System.out.println("Teste de nome vazio resultou em erro :  "+ err);
+			}
+	}
+	
+	
+	@Test
+	public void listaOcorrenciaVaziaDoProjeto() throws Exception {
+		Projeto teste=new Projeto("Abbey Road",AppleR);
+		assertThat(teste.listOcorrencias(),is(new ArrayList<Ocorrencia>()));
+		
+	}
+	
+	
 }

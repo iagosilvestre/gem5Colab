@@ -40,9 +40,31 @@ public class testeFuncionario {
 	}
 	
 	@Test
-	public void idDoFuncionario() throws Exception {
-		
-		
+	public void idDosFuncionarios() throws Exception {
+		assertThat(Joao.getId(),is(1));
+		assertThat(Marcio.getId(),is(2));
+		assertThat(Cesar.getId(),is(1));
+		Cesar.mudaEmpresa(Apple);
+		assertThat(Cesar.getId(),is(3));
+	}
+	
+	
+	@Test
+	public void nomeVazioFuncionario() throws Exception {
+		try {
+		Funcionario nomeVazio = new Funcionario("",Apple); 
+		}
+		catch(Error err){
+			System.out.println("Teste de nome vazio resultou em erro :  "+ err);
+		}
+	}
+	
+	@Test
+	public void mudaEmpresaFuncionario() throws Exception {
+		assertThat(Cesar.getEmpresa(),is(AppleR));
+		Cesar.mudaEmpresa(Apple);
+		assertThat(Cesar.getEmpresa(),is(Apple));
+		assertThat(AppleR.listFuncionarios(),is(new ArrayList<Funcionario>()));
 	}
 
 }
